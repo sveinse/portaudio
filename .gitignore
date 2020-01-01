@@ -40,3 +40,8 @@ portaudio-2.0.pc
 *.exe
 *.out
 *.app
+
+# Local edits
+build/msvc/Win32
+build/msvc/x64
+src/hostapi/asio/ASIOSDK
