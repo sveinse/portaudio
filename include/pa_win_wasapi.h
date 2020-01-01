@@ -548,6 +548,31 @@ PaError PaWasapi_SetDefaultInterfaceId( unsigned short *pId, int bOutput );
 */
 PaError PaWasapi_SetStreamStateHandler( PaStream *pStream, PaWasapiStreamStateCallback fnStateHandler, void *pUserData );
 
+/** Returns Windows device ID for input stream
+
+ @param  pStream Pointer to PaStream to query.
+
+ @return non-null value pointing to static device ID
+*/
+const wchar_t *PaWasapi_GetInputDeviceID( PaStream *s );
+
+/** Returns Windows device ID for output stream
+
+ @param  pStream Pointer to PaStream to query.
+
+ @return non-null value pointing to static device ID
+*/
+const wchar_t *PaWasapi_GetOutputDeviceID( PaStream *s );
+
+/** Returns device loopback indicator.
+
+ @param nDevice device index.
+
+ @return 0 = Not loopback, 1 = loopback, < 0 = PaErrorCode
+         if PortAudio is not initialized or an error is encountered.
+*/
+int PaWasapi_IsLoopback( PaDeviceIndex nDevice );
+
 
 /*
     IMPORTANT:
