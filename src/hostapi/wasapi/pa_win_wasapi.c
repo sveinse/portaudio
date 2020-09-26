@@ -5878,7 +5878,7 @@ PA_THREAD_FUNC ProcThreadPoll(void *param)
 
 	// Calculate timeout for next polling attempt.
 	sleep_ms_in  = GetFramesSleepTime(stream->in.framesPerHostCallback / WASAPI_PACKETS_PER_INPUT_BUFFER, stream->in.wavex.Format.nSamplesPerSec);
-	sleep_ms_out = GetFramesSleepTime(stream->out.framesPerBuffer, stream->out.wavex.Format.nSamplesPerSec);
+	sleep_ms_out = GetFramesSleepTime(stream->out.framesPerBuffer, stream->out.wavex.Format.nSamplesPerSec) / 2;
 
 	// WASAPI Input packets tend to expire very easily, let's limit sleep time to 2 milliseconds
 	// for all cases. Please propose better solution if any.
@@ -5890,7 +5890,7 @@ PA_THREAD_FUNC ProcThreadPoll(void *param)
 	if (stream->bufferMode != paUtilFixedHostBufferSize)
 	{
 		//sleep_ms_in = GetFramesSleepTime((stream->bufferProcessor.framesPerUserBuffer ? stream->bufferProcessor.framesPerUserBuffer : stream->in.params.frames_per_buffer), stream->in.wavex.Format.nSamplesPerSec);
-		sleep_ms_out = GetFramesSleepTime((stream->bufferProcessor.framesPerUserBuffer ? stream->bufferProcessor.framesPerUserBuffer : stream->out.params.frames_per_buffer), stream->out.wavex.Format.nSamplesPerSec);
+		sleep_ms_out = GetFramesSleepTime((stream->bufferProcessor.framesPerUserBuffer ? stream->bufferProcessor.framesPerUserBuffer : stream->out.params.frames_per_buffer), stream->out.wavex.Format.nSamplesPerSec) / 2;
 	}
 
 	// Choose smallest
