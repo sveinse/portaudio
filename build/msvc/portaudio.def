@@ -54,3 +54,6 @@ PaWasapi_GetJackCount               @65
 PaWasapi_GetJackDescription         @66
 ;PaWasapi_SetDefaultInterfaceId      @67
 PaWasapi_SetStreamStateHandler      @68
+PaWasapi_GetInputDeviceID           @69
+PaWasapi_GetOutputDeviceID          @70
+PaWasapi_IsLoopback                 @71
