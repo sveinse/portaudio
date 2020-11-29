@@ -46,3 +46,8 @@ portaudio-2.0.pc
 
 # Visual Studio CMake build output folder 
 out/
+
+# Local edits
+build/msvc/Win32
+build/msvc/x64
+src/hostapi/asio/ASIOSDK
